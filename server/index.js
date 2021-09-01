@@ -3,11 +3,15 @@ const connection = require("./db");
 const cors = require("cors");
 const express = require("express");
 const app = express();
+require("dotenv").config();
+const morgan = require("morgan");
 
-connection();
 
+app.use(morgan("dev"));
 app.use(express.json());
 app.use(cors());
+
+connection();
 
 app.use("/api/tasks", tasks);
 
