@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: todo-api-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: todo-api
+  template:
+    metadata:
+      labels:
+        app: todo-api
+    spec:
+      containers:
+        - name: auth
+          image: manrodri/todo-api
+          env:
+            - name: DATABASE
+              value: 'mongodb://auth-mongo-srv:27017/todo'
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: todo-api-srv
+spec:
+  selector:
+    app: todo-api
+  ports:
+    - name: todo-api
+      protocol: TCP
+      port: 4000
+      targetPort: 4000

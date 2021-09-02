@@ -1,5 +1,6 @@
 import axios from "axios";
-const apiUrl = "http://localhost:8080/api/tasks";
+const apiUrl = process.env.TODO_API_URL
+// const apiUrl = "http://localhost:8080/api/tasks";
 
 export function getTasks() {
     return axios.get(apiUrl);

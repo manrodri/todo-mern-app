@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: client
+  template:
+    metadata:
+      labels:
+        app: client
+    spec:
+      containers:
+        - name: client
+          image: manrodri/todo-client
+          env:
+            - name: TODO_API_URL
+              value: "http://todo-api-srv/api/tasks"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: todo-client-srv
+spec:
+  selector:
+    app: client
+  ports:
+    - name: client
+      protocol: TCP
+      port: 80
+      targetPort: 80
