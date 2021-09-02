@@ -22,6 +22,8 @@ build:
       docker:
         dockerfile: Dockerfile
       sync:
-        manual:
-          - src: '**/*.js'
-            dest: .
+        infer:
+          - "**/*.js"
+#        manual:
+#          - src: '**/*.js'
+#            dest: .

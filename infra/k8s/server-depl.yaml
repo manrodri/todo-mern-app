@@ -13,7 +13,7 @@ spec:
         app: todo-api
     spec:
       containers:
-        - name: auth
+        - name: todo-api
           image: manrodri/todo-api
           env:
             - name: DATABASE

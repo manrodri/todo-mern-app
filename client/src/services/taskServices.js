@@ -1,8 +1,9 @@
 import axios from "axios";
-const apiUrl = process.env.TODO_API_URL
-// const apiUrl = "http://localhost:8080/api/tasks";
+// const apiUrl = process.env.REACT_APP_API_URL
+const apiUrl = "https://todo.manrodri.com/api/tasks";
 
 export function getTasks() {
+    console.log("apiURL ---> ", apiUrl)
     return axios.get(apiUrl);
 }
 
