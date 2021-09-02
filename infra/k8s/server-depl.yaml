@@ -17,7 +17,7 @@ spec:
           image: manrodri/todo-api
           env:
             - name: DATABASE
-              value: 'mongodb://auth-mongo-srv:27017/todo'
+              value: 'mongodb://todo-mongo-srv:27017/todo'
 ---
 apiVersion: v1
 kind: Service
